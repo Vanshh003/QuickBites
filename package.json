@@ -1,0 +1,34 @@
+{
+  "name": "food-ordering-app",
+  "version": "1.0.0",
+  "description": "food-ordering-application",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vanshh003/QuickBites.git"
+  },
+  "keywords": [
+    "Food",
+    "Order",
+    "Online"
+  ],
+  "author": "Vansh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vanshh003/QuickBites/issues"
+  },
+  "homepage": "https://github.com/Vanshh003/QuickBites#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
