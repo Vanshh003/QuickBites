@@ -45,7 +45,7 @@ const styleCard = {
     backgroundColor: "#f0f0f0",
 };
 
-const RestaurantCard = () => {
+const RestaurantCard = (props) => {
     return (
         // <div className='res-card' style={styleCard}>         or
         <div className='res-card' style={{ backgroundColor: "#f0f0f0" }}>
@@ -54,8 +54,8 @@ const RestaurantCard = () => {
                 alt='res-logo'
                 src='https://images.venuebookingz.com/18104-1515154374-wm-meghana-foods-5.JPG'
             />
-            <h3>Meghna Foods</h3>
-            <h4>Biryani, North Indian, Italian</h4>
+            <h3>{props.resName}</h3>
+            <h4>{props.cuisine}</h4>
             <h4>4.4 stars</h4>
             <h4>38 minutes</h4> 
         </div>
@@ -67,20 +67,14 @@ const Body = () => {
         <div className='body'>
             <div className='Search'>Search</div>
             <div className='res-container'>
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
+                <RestaurantCard 
+                    resName="Meghna Foods"
+                    cuisine="Biryani, North Indian, Italian"
+                />
+                <RestaurantCard 
+                    resName="KFC"
+                    cuisine="Burger, Fast Food, Chicken"
+                />
             </div>
         </div>
     )
