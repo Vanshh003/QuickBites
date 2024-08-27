@@ -1870,13 +1870,15 @@ const resList =  [
     }
 ];
 
+
+// not using keys (not acceptable) <<<< index as key <<<<< unique id (best practice)
 const Body = () => {
     return (
         <div className='body'>
             <div className='Search'>Search</div>
             <div className='res-container'>
                 {resList.map((restautant) => (   // Content Driven UI
-                    <RestaurantCard resData={restautant}/>
+                    <RestaurantCard key={restautant.info.id} resData={restautant}/>
                 ))}
             </div>
         </div>
