@@ -36,3 +36,11 @@ import Component from "path";
 
 export const Component;
 import {Component} from "path";
+
+
+
+
+# React Hooks
+    (Normal JS utility functions)
+ - useState() -> used to generate State Variables in React
+ - useEffect()
