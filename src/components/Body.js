@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
+import Shimmer from "./Shimmer";
 
 
 const Body = () => {
@@ -16,12 +17,16 @@ const Body = () => {
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.40487574339156&lng=77.33804125338793&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
 
         const json = await data.json();     // convert that stream to json
-
-        // updating the state variable, for it to populate the app with new data
-        setListOfRestaurants(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+        
+        // Optional Chaining
+        setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);       // updating the state variable, for it to populate the app with new data
     };
     
     
+
+    if(listOfRestaurants.length === 0) {
+        return <Shimmer />
+    }
 
     // not using keys (not acceptable) <<<< index as key <<<< unique id (best practice)
     return (
