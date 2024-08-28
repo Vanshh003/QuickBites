@@ -24,12 +24,15 @@ const Body = () => {
     
     
 
-    if(listOfRestaurants.length === 0) {
-        return <Shimmer />
-    }
+    // Contitional Rendering
+    
+    // if(listOfRestaurants.length === 0) {
+    //     return <Shimmer />
+    // }
 
-    // not using keys (not acceptable) <<<< index as key <<<< unique id (best practice)
-    return (
+    // the same can also be done using ternary operator
+
+    return (listOfRestaurants.length === 0) ? <Shimmer /> : (
         <div className='body'>
             <div className='filter'>
                 
