@@ -4,7 +4,7 @@ import RestaurantCard from "./RestaurantCard";
 
 const Body = () => {
     // local state variable
-    const [listOfRestaurants, setListOfRestaurants] = useState(); 
+    const [listOfRestaurants, setListOfRestaurants] = useState([]); 
     
 
     
@@ -45,7 +45,7 @@ const Body = () => {
                     <RestaurantCard key={restautant.info.id} resData={restautant}/>
                 ))}
             </div>
-            
+
         </div>
     )
 };
