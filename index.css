@@ -67,3 +67,8 @@
     animation: shimmer 1.5s infinite;
     margin: 5;
 }
+
+.login {
+    padding: 0 20px;
+    cursor: pointer;
+}
