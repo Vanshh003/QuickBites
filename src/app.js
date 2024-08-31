@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './components/Header';
 import Body from './components/Body';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import About from './components/About';
 import Contact from './components/Contact';
 import Error from './components/Error';
@@ -18,7 +18,15 @@ const AppLayout = () => {
     return (
         <div className="app">
             <Header />
-            <Body />
+
+            {/* if path = "/"  ... then render ... <Body /> */}
+            {/* if path = "/about"  ... then render ... <About /> */}      
+            {/* if path = /contact  ... then render ... <Contact /> */}
+
+            
+            {/* this outlet will be filled with the children acording to the path */}
+            <Outlet />
+
         </div>
     );
 };
@@ -30,19 +38,24 @@ const appRouter = createBrowserRouter([
         // if my path is "/" then load the home page... i.e. appLayout compoent
         path: "/",             
         element: <AppLayout />,
+
+        // children is a list of paths
+        children: [
+            {
+                path: "/",
+                element: <Body />,
+            }, 
+            {
+                path: "/about",
+                element: <About />,
+            },
+            {
+                path: "/contact",
+                element: <Contact />,
+            },
+        ],
+
         errorElement: <Error />,    // if the path has some error it will catch it and will show you the error page
-    },
-    {
-        // if my path is "/about" then load the about compoent 
-        path: "/about",
-        element: <About />,
-        errorElement: <Error />,
-    },
-    {
-        // if my path is "/contact" then load the contact compoent 
-        path: "/contact",
-        element: <Contact />,
-        errorElement: <Error />,
     },
 ]);
 
