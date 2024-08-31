@@ -10,11 +10,16 @@ const Body = () => {
     
     const [searchText, setSearchText] = useState("");
 
-    
+
+    // if no dependency array => useEffect is called on every render
+    // if dependency array is empty = [] => useEffect is called on initial render only (just once)
+    // if dependency array is not empty.. [btnNameReact] => useEffect will be called everytime btnNameReact is updated 
     useEffect(() => {
         // console.log(listOfRestaurants);
         fetchData();
     }, []);
+
+    
 
     const fetchData = async () => {
         // to bypass CORS policy error without using chrome extension.. use corsproxy in front of this api call
