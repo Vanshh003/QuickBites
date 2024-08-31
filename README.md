@@ -2,7 +2,6 @@
 
 
 # Stucture
-/**
 * Header
     - logo 
     - nav items 
@@ -22,9 +21,10 @@
     - links 
     - address 
     - contact
-*/
 
 
+
+<br><br>
 
 
 # Two types of Export/Import
@@ -32,30 +32,31 @@
 
 - Default Export/Import
 
-`export default Component`; 
-`import Component from "path"`;
+`export default Component`; <br> 
+`import Component from "path"`; 
 
 
 - Named Export/Import
 
-`export const Component;`
+`export const Component;` <br>
 `import {Component} from "path";`
 
 
+<br><br>
 
 
 # React Hooks
-    
-    (Normal JS utility functions)
+
+Normal JS utility functions
  - useState() -> used to generate State Variables in React
- - useEffect()
+ - useEffect() -> used if anything needs to be done after rendering a component
 
 
 
 
 # Routing
     
-    There are 2 types of routing
+There are 2 types of routing
 
  - Server Side Routing : <br>
         basically you make a network call and the page about.html is coming from the server    
