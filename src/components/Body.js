@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 
 const Body = () => {
@@ -26,7 +27,7 @@ const Body = () => {
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.40487574339156&lng=77.33804125338793&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
 
         const json = await data.json();     // convert that stream to json
-        console.log(json);
+        // console.log(json);
         
         // Optional Chaining
         setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);       // updating the state variable, for it to populate the app with new data
@@ -77,7 +78,7 @@ const Body = () => {
 
             <div className='res-container'>
                 {modifiedListOfRestaurants.map((restautant) => (   // Content Driven UI
-                    <RestaurantCard key={restautant.info.id} resData={restautant}/>
+                    <Link key={restautant.info.id} to={"/restaurants/" + restautant.info.id}><RestaurantCard key={restautant.info.id} resData={restautant}/></Link>
                 ))}
             </div>
 
