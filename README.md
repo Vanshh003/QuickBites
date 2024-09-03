@@ -51,7 +51,7 @@ Normal JS utility functions
  - useState() -> used to generate State Variables in React
  - useEffect() -> used if anything needs to be done after rendering a component
 
-
+<br><br>
 
 
 # Routing
