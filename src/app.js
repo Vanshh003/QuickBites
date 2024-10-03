@@ -1,16 +1,33 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './components/Header';
 import Body from './components/Body';
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
-import About from './components/About';
+// import About from './components/About';
 import Contact from './components/Contact';
 import Error from './components/Error';
 import RestaurantMenu from './components/RestaurantMenu';
+// import Grocery from './components/Grocery';
 
 
 
 
+// to optimise the app, you have to  break down the app into smaller logical chunks.. this process is called
+
+// Chunking
+// Code Splitting
+// Dynamic Loading
+// Lazy Loading
+// On Demand Loading
+// Dynamic Bundling 
+// Dynamic Import
+
+
+
+
+
+const Grocery = lazy(() => import('./components/Grocery'));
+const About = lazy(() => import('./components/About'));
 
 
 
@@ -46,13 +63,21 @@ const appRouter = createBrowserRouter([
                 path: "/",
                 element: <Body />,
             }, 
+            // {
+            //     path: "/about",
+            //     element: <About />,
+            // },
             {
                 path: "/about",
-                element: <About />,
+                element: <Suspense fallback={<h1>Loading...</h1>}><About /></Suspense>,
             },
             {
                 path: "/contact",
                 element: <Contact />,
+            },
+            {
+                path: "/grocery",
+                element: <Suspense fallback={<h1>Loading...</h1>}><Grocery /></Suspense>,
             },
             {
                 path: "/restaurants/:resID",
