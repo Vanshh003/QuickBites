@@ -39,7 +39,7 @@ class UserClass extends React.Component {
     render() {
 
         const { name, location, avatar_url } = this.state.userInfo;
-        debugger;
+        // debugger;
 
         return (
             <div className="user-card">

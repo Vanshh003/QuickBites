@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import { HOME_API } from "../utils/constants";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 
 const Body = () => {
@@ -24,7 +26,7 @@ const Body = () => {
 
     const fetchData = async () => {
         // to bypass CORS policy error without using chrome extension.. use corsproxy in front of this api call
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.40487574339156&lng=77.33804125338793&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch(HOME_API);
 
         const json = await data.json();     // convert that stream to json
         // console.log(json);
@@ -33,6 +35,11 @@ const Body = () => {
         setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);       // updating the state variable, for it to populate the app with new data
         setModifiedListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
+
+
+    const onlineStatus = useOnlineStatus();
+
+    if(onlineStatus === false) return <h1>Looks Like you're Offline :/  Please Check Your Internet Connection </h1>
     
     
     // Contitional Rendering
