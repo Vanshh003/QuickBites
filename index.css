@@ -1,4 +1,4 @@
-.header {
+/* .header {
     display: flex;
     justify-content: space-between;
     border: 1px solid black;
@@ -137,4 +137,15 @@
 .user-card {
     padding: 10px;
     border: 1px solid black;
-}
+} */
+
+
+
+
+
+
+
+/* importing tailwind into index.css file */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
