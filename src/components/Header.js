@@ -41,7 +41,7 @@ const Header = () => {
                     <li className="px-4">Cart</li>
 
                     <button 
-                        className="login" 
+                        className="login px-4" 
                         onClick={() => {
                             (btnNameReact === "Login") ? setBtnNameReact("Logout") : setBtnNameReact("Login")
                         }}
