@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { HOME_API } from "../utils/constants";
@@ -12,6 +12,8 @@ const Body = () => {
     const [modifiedListOfRestaurants, setModifiedListOfRestaurants] = useState([]); 
     
     const [searchText, setSearchText] = useState("");
+
+    const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
 
     // if no dependency array => useEffect is called on every render
@@ -99,7 +101,12 @@ const Body = () => {
             {/* <div className='res-container'> */}
             <div className='flex flex-wrap'>
                 {modifiedListOfRestaurants.map((restautant) => (   // Content Driven UI
-                    <Link key={restautant.info.id} to={"/restaurants/" + restautant.info.id}><RestaurantCard key={restautant.info.id} resData={restautant}/></Link>
+                    <Link key={restautant.info.id} to={"/restaurants/" + restautant.info.id}>
+                    
+                        {/* if the restaurant is promoted then add a promoted label to it */}
+                        {restautant.info.promoted ? <RestaurantCardPromoted key={restautant.info.id} resData={restautant}/> : <RestaurantCard key={restautant.info.id} resData={restautant}/>}
+                        
+                    </Link>
                 ))}
             </div>
 
