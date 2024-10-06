@@ -3,6 +3,7 @@ import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
+import { useState } from "react";
 // import { MENU_API } from "../utils/constants";
 
 const RestaurantMenu = () => {
@@ -11,6 +12,9 @@ const RestaurantMenu = () => {
 
     const obj = useParams();
     const resInfo = useRestaurantMenu(obj.resID);
+
+    const [showIndex, setShowIndex] = useState(0);
+
 
 
     // useEffect(() => {
@@ -83,7 +87,19 @@ const RestaurantMenu = () => {
             </p>
 
             {/* categories accordions - each accordion will have a header and collapsable body */}
-            {categories.map((category) => <RestaurantCategory key={category?.card?.card.title} data = {category?.card?.card} />)}
+            {categories.map((category, index) => 
+                
+                // controlled component
+                <RestaurantCategory 
+                    key={category?.card?.card.title} 
+                    data = {category?.card?.card} 
+
+                    // when one accodion is expanded, rest all should be collapsed
+                    showItems={index === showIndex && true}  // just expand the first and collapse the rest.. if index==showindex then make it true.. can also be written as index === showIndex ? true : false
+                    
+                    // coz state variable of this component cannot be controlled or modified by another component, we'll pass the function and this function will basically set the show index of that particular index
+                    setShowIndex = {() => setShowIndex(index)}
+                />)}
         </div>
     );
 
