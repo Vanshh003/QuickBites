@@ -79,11 +79,11 @@ const RestaurantMenu = () => {
         <div className="text-center">
             <h1 className="font-bold my-6 text-2xl">{name}</h1>
             <p className="font-bold text-lg">
-                {cuisines.join(", ")} - {costForTwoMessage};
+                {cuisines.join(", ")} - {costForTwoMessage}
             </p>
 
             {/* categories accordions - each accordion will have a header and collapsable body */}
-            {categories.map((category) => <RestaurantCategory key={category?.card?.card.title} data = {category?.card?.card} />)};
+            {categories.map((category) => <RestaurantCategory key={category?.card?.card.title} data = {category?.card?.card} />)}
         </div>
     );
 
