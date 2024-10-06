@@ -104,7 +104,7 @@ const Body = () => {
                     <Link key={restautant.info.id} to={"/restaurants/" + restautant.info.id}>
                     
                         {/* if the restaurant is promoted then add a promoted label to it */}
-                        {restautant.info.promoted ? <RestaurantCardPromoted key={restautant.info.id} resData={restautant}/> : <RestaurantCard key={restautant.info.id} resData={restautant}/>}
+                        {restautant.info.isBestseller ? <RestaurantCardPromoted key={restautant.info.id} resData={restautant}/> : <RestaurantCard key={restautant.info.id} resData={restautant}/>}
                         
                     </Link>
                 ))}
