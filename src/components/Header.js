@@ -3,6 +3,7 @@ import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
 
@@ -13,6 +14,12 @@ const Header = () => {
     // const data = useContext(UserContext);
     // console.log(data);
     const {loggedInuser} = useContext(UserContext);
+
+
+    // Read Items from the store
+    // subscribing to the store using selector (this hook will give us access to the store)
+    // this selector helps us identify, what portion of the store we need to read and subscribe to
+    const cartItems = useSelector((store) => store.cart.items); // now this cartItems will get the data of the store items and whenever the items will modify, this cardItems will also modify
 
     return (
         // <div className="header">
@@ -43,7 +50,7 @@ const Header = () => {
                     <li className="px-4">
                         <Link to="/grocery"> Grocery </Link>
                     </li>
-                    <li className="px-4">Cart</li>
+                    <li className="px-4 font-bold">Cart - ({cartItems.length} items)</li>
 
                     <button 
                         className="login px-4" 

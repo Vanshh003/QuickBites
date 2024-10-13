@@ -8,6 +8,8 @@ import Contact from './components/Contact';
 import Error from './components/Error';
 import RestaurantMenu from './components/RestaurantMenu';
 import UserContext from './utils/UserContext';
+import { Provider } from 'react-redux';
+import appStore from './utils/appStore';
 // import Grocery from './components/Grocery';
 
 
@@ -48,20 +50,23 @@ const AppLayout = () => {
 
 
     return (
-        <UserContext.Provider value={{ loggedInuser: userName, setUserName }}> 
-            <div className="app">
-                <Header />
+        <Provider store={appStore}>
+            <UserContext.Provider value={{ loggedInuser: userName, setUserName }}> 
+                <div className="app">
+                    <Header />
 
-                {/* if path = "/"  ... then render ... <Body /> */}
-                {/* if path = "/about"  ... then render ... <About /> */}      
-                {/* if path = /contact  ... then render ... <Contact /> */}
+                    {/* if path = "/"  ... then render ... <Body /> */}
+                    {/* if path = "/about"  ... then render ... <About /> */}      
+                    {/* if path = /contact  ... then render ... <Contact /> */}
 
-                
-                {/* this outlet will be filled with the children acording to the path */}
-                <Outlet />
+                    
+                    {/* this outlet will be filled with the children acording to the path */}
+                    <Outlet />
 
-            </div>
-        </UserContext.Provider>
+                </div>
+            </UserContext.Provider>
+        </Provider>
+        
     );
 };
 

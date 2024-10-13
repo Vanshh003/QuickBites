@@ -66,3 +66,15 @@ There are 2 types of routing
         in which no network calls are made while moving towards the page, because all the components are already loaded into our app. When we load the app for the first time, it already has the code for aboutus, contact and other components.. when we go to aboutus.. it just loads that component.. it doesnt make any network calls
 
         
+
+
+
+<br><br>
+
+# Redux Toolkit
+   - Install @reduxjs/toolkit and react-redux
+   - Build the store
+   - Connect the store to app
+   - create Slice (cardSlice)
+   - dispatch (action)
+   - Selector
