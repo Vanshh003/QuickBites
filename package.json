@@ -4,7 +4,7 @@
   "description": "food-ordering-application",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html --port 3002",
+    "start": "parcel index.html --port 8003",
     "build": "parcel build index.html",
     "test": "jest"
   },
