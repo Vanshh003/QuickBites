@@ -78,3 +78,32 @@ There are 2 types of routing
    - create Slice (cardSlice)
    - dispatch (action)
    - Selector
+
+
+
+
+
+
+
+<br><br>
+
+# Types of testing (developer)
+   - Unit Testing -> Test the react components in isolation (render only one specific component (small unit) of the application and test)
+   - Integration Testing -> Testing the integration of the components
+   - End to End (e2e) Testing -> Testing a react application from user landing to page to the end.. full application.. 
+            - e2e testing required different tools, like, cypress, puppeteer, selenium.. 
+
+<br>
+
+# Setting up Testing in out app
+   - Install React Testing Library
+   - Install jest
+   - Installed Babel dependencies
+   - Configure Babel
+   - Confugure Parcel Congig file to disable default Babel transpilation
+   - Jest configuration -> npx jest --init
+   - Install jsdom library
+   - Install @babel/preset-react to make JSX work in test cases
+   - Include @babel/preset-react inside my Babel config
+   - Install @testing-library/jest-dom
+
