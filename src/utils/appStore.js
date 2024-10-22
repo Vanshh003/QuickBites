@@ -6,6 +6,8 @@ const appStore = configureStore({
     reducer: {
         cart: cartReducer,
     },
+
+    // this is one reducer for the whole app.. which can contain multiple small reducers
 });
 
 export default appStore;
