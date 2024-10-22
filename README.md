@@ -89,7 +89,7 @@ There are 2 types of routing
 
 # Types of testing (developer)
    - Unit Testing -> Test the react components in isolation (render only one specific component (small unit) of the application and test)
-   - Integration Testing -> Testing the integration of the components
+   - Integration Testing -> Testing the integration of the components.. when multiple components work together, i.e. testing a complete feature
    - End to End (e2e) Testing -> Testing a react application from user landing to page to the end.. full application.. 
             - e2e testing required different tools, like, cypress, puppeteer, selenium.. 
 

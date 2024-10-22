@@ -5,7 +5,8 @@
   "scripts": {
     "start": "parcel index.html --port 8003",
     "build": "parcel build index.html",
-    "test": "jest"
+    "test": "jest",
+    "watch-test": "jest --watch"  
   },
   "repository": {
     "type": "git",
