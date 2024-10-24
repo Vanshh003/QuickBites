@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import ItemList from "./ItemList";
 import { clearCart } from "../utils/cartSlice";
+import toast from "react-hot-toast";
 
 const Cart = () => {
 
@@ -24,6 +25,8 @@ const Cart = () => {
 
     const handleClearCart = () => {
         dispatch(clearCart())
+
+        toast.success("Cart is cleared!")
     };
 
     return (

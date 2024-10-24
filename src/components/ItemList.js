@@ -1,6 +1,8 @@
 import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constants";
 import { addItem } from "../utils/cartSlice";
+import toast from "react-hot-toast";
+
 
 const ItemList = ({items}) => {
 
@@ -13,7 +15,12 @@ const ItemList = ({items}) => {
         // dispatch and action
         dispatch(addItem(item));  // whatever we pass inside this will go to the reducer function, as action.payload, inside the cart
         // whenever we dispatch this action, redux'll take whatever data it's passing in, it'll creare an object, and will create payload inside that object and add whatever data passed to that payload.. and it'll take this object and pass it as the second argument in the cartSlice
-    
+        
+        // Show success toast message when item is added
+        toast.success(`${item.card.info.name} successfully added to cart`, {
+            position: 'top-right',  // Show toast in the top right corner
+        });
+
         // {
         //     payload: "pizza"
         // }

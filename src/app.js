@@ -11,6 +11,8 @@ import UserContext from './utils/UserContext';
 import { Provider } from 'react-redux';
 import appStore from './utils/appStore';
 import Cart from './components/Cart';
+import { Toaster } from 'react-hot-toast';
+import Login from './components/Login';
 // import Grocery from './components/Grocery';
 
 
@@ -52,7 +54,21 @@ const AppLayout = () => {
 
     return (
         <Provider store={appStore}>
+        
             <UserContext.Provider value={{ loggedInuser: userName, setUserName }}> 
+                <div>
+                    <Toaster 
+                        position='top-right'
+                        toastOptions={{
+                            success: {
+                                theme: {
+                                    primary: '#4aed88',
+                                },
+                            },
+                        }}
+                    />
+                </div>
+
                 <div className="app">
                     <Header />
 
@@ -60,13 +76,15 @@ const AppLayout = () => {
                     {/* if path = "/about"  ... then render ... <About /> */}      
                     {/* if path = /contact  ... then render ... <Contact /> */}
 
-                    
+                        
                     {/* this outlet will be filled with the children acording to the path */}
+
                     <Outlet />
 
                 </div>
             </UserContext.Provider>
         </Provider>
+        
         
     );
 };
@@ -108,6 +126,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/cart",
                 element: <Cart />,
+            },
+            {
+                path: "/login",
+                element: <Login />,
             },
         ],
 
